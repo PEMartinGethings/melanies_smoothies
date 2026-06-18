@@ -38,5 +38,6 @@ if ingredients_list:
     submit_button = st.button("Submit Order")
 
     if submit_button:
-        conn.query(my_insert_stmt)
+        session = conn.session()
+        session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
