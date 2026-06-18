@@ -15,7 +15,7 @@ st.write("The name on your Smoothie will be:", name_on_order)
 
 conn = st.connection("snowflake")
 
-my_dataframe = conn.query("select fruit_name from smoothies.public.fruit_options")
+my_dataframe = conn.query("select fruit_name, search_on from smoothies.public.fruit_options")
 
 ingredients_list = st.multiselect(
     "Choose up to 5 ingredients:",
