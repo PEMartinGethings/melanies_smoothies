@@ -2,6 +2,7 @@
 import streamlit as st
 import snowflake.connector
 import pandas as pd
+import requests
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
@@ -41,9 +42,6 @@ if ingredients_list:
         session = conn.session()
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
-
-
-import requests
 
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 
